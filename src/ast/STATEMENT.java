@@ -2,7 +2,7 @@ package ast;
 
 import libs.Node;
 
-public class STATEMENT extends Node {
+public abstract class STATEMENT extends Node {
     @Override
     public void parse() {
 
