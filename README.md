@@ -9,13 +9,12 @@ STATEMENT ::= EXPRESSION (EXPRESSION | TEST)*
 TEST ::= "test" STRING "with" "{" STRING ("," STRING)* "}" 
 
 EXPRESSION ::= "expression" STRING "{" RULE+ "}"
-RULE ::= ANCHOR? QUANTIFIER ":" KEYWORD
+RULE ::= ANCHOR? QUANTIFIER ":" KEYWORD ("or" KEYWORD)*
 ANCHOR ::= "starts with" | "ends with"
 
-QUANTIFIER ::= DIGIT "of" | DIGIT "or more of" | DIGIT ORDIGIT* "of"
-ORDIGIT ::= "or" DIGIT
+QUANTIFIER ::= DIGIT "of" | DIGIT "or more of" | DIGIT ("or" DIGIT)* "of"
 
-KEYWORD ::= CHARACTER-DEF | DIGIT-DEF | "non-digit" | "whitespace" | "non-whitespace" | "newline" | "tab"
+KEYWORD ::= CHARACTER-DEF | DIGIT-DEF | STRING | "non-digit" | "whitespace" | "non-whitespace" | "newline" | "tab"
 CHARACTER-DEF ::= "character" CHARACTER-CONSTRAINT?
 CHARACTER-CONSTRAINT ::= FROM-CHAR | FROM-CHAR AND-CHAR*
 FROM-CHAR ::= "from" CHAR "to" CHAR

@@ -14,16 +14,26 @@ public class TEST extends STATEMENT {
     public void parse(){
         tokenizer.getAndCheckNext("teststringswith") ;
         name = tokenizer.getNext();
-        tokenizer.getAndCheckNext("{");
-        while(!tokenizer.checkToken("}")){
+        tokenizer.getAndCheckNext("\\{");
+        while(!tokenizer.checkToken("\\}")){
             tests.add(tokenizer.getNext()) ;
-            //tests.add(tokenizer.getAndCheckNext(","));
+            tests.add(tokenizer.getAndCheckNext(","));
         }
-        tokenizer.getAndCheckNext("}");
+        tokenizer.getAndCheckNext("\\}");
+    }
+
+    @Override
+    public void nameCheck() {
+
+    }
+
+    @Override
+    public void typeCheck() {
+
     }
 
     @Override
     public String evaluate() {
-        return super.evaluate();
+        return null;
     }
 }

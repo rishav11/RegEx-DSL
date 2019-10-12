@@ -1,25 +1,40 @@
 package ast;
 
+import java.util.ArrayList;
+
 /**
  * Created by Rishav on 2019-10-11.
  */
 public class EXPRESSION extends STATEMENT {
 
     private String name;
-    private RULE codeblock ;
+    private ArrayList<RULE> rules;
 
     @Override
     public void parse(){
-        tokenizer.getAndCheckNext("newexpressioncalled");
+        tokenizer.getAndCheckNext("expression");
         name = tokenizer.getNext();
-        tokenizer.getAndCheckNext("{");
-        codeblock = new RULE();
-        codeblock.parse();
-        tokenizer.getAndCheckNext("}");
+        tokenizer.getAndCheckNext("\\{");
+        while (!tokenizer.checkToken("\\}")) {
+            RULE rule = new RULE();
+            rule.parse();
+            rules.add(rule);
+        }
+        tokenizer.getAndCheckNext("\\}");
+    }
+
+    @Override
+    public void nameCheck() {
+
+    }
+
+    @Override
+    public void typeCheck() {
+
     }
 
     @Override
     public String evaluate() {
-        return super.evaluate();
+        return null;
     }
 }
