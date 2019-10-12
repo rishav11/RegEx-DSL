@@ -1,7 +1,28 @@
-new expression called emailRegEx {
-    starts with 1 or more of: character or digit or “_” or “.” or “-”,
-    1 of: “@”,
-    1 or more of: character or digit or “.” or “-”,
-    1 of: “.”,
+expression emailRegEx {
+    starts with 1 or more of: character or digit or "_" or "." or "-",
+    1 of: "@",
+    1 or more of: character or digit or "." or "-",
+    1 of: ".",
     ends with 2 or more of: character
+}
+
+expression phoneNumberRegEx {
+    starts with 3 of: digit,
+    1 of: "-",
+    3 of: digit,
+    1 of: "-",
+    ends with 4 of: digit
+}
+
+test emailRegEx with {
+    "vinielk@icloud.com",
+    "notvalidemail@.com"
+}
+
+test phoneNumberRegEx with {
+    "     778-994-1393",
+    "7789941393",
+    "(778) 994-1393",
+    "778-994-1393       ",
+    "778-994-1393"
 }

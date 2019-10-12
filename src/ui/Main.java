@@ -11,7 +11,30 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
-        List<String> literals = Arrays.asList("new expression called", "test strings with", "{", "}", "starts with", "ends with", "or more of", "character", "digit", "from", "and", "to");
+        List<String> literals = Arrays.asList(
+            "test",
+            "with",
+            "{",
+            "}",
+            ",",
+            "expression",
+            ":",
+            "starts with",
+            "ends with",
+            "or more of",
+            "of",
+            "or",
+            "character",
+            "from",
+            "to",
+            "and",
+            "digit",
+            "non-digit",
+            "whitespace",
+            "non-whitespace",
+            "newline",
+            "tab"
+        );
         Tokenizer.makeTokenizer("input.super",literals);
         Node.setWriter("output.txt");
         Node program = new PROGRAM();
