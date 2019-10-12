@@ -1,5 +1,7 @@
 package ast;
 
+import java.util.ArrayList;
+
 /**
  * Created by Rishav on 2019-10-11.
  */
@@ -7,11 +9,11 @@ public class RULE extends STATEMENT {
 
     private ANCHOR anchor;
     private QUANTIFIER quantifier;
-    private KEYWORD keyword;
+    private ArrayList<KEYWORD> keywords = new ArrayList<>();
 
     @Override
     public void parse(){
-        // NO anchor
+        // check if it has anchor, if yes
         if (!tokenizer.checkToken("[0-9]+")) {
             anchor = new ANCHOR();
             anchor.parse();
@@ -19,6 +21,17 @@ public class RULE extends STATEMENT {
         quantifier = new QUANTIFIER();
         quantifier.parse();
         tokenizer.getAndCheckNext(":");
+        while (!tokenizer.checkToken(",")) {
+            KEYWORD keyword = new KEYWORD();
+            keyword.parse();
+            keywords.add(keyword);
+            String next = tokenizer.getNext();
+            if (next.equals("or")) {
+                continue;
+            } else if (next.equals(",")) {
+                break;
+            }
+        }
     }
 
     @Override

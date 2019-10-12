@@ -21,7 +21,15 @@ public class QUANTIFIER extends STATEMENT {
             isExactly = true;
         } else if (exact == "ormoreof") {
             isExactly = false;
+        } else if (exact == "or") {
+            while (!tokenizer.checkToken("of")) {
+                tokenizer.getNext();
+                ordigits.add(Integer.parseInt(tokenizer.getNext()));
+
+            }
+
         }
+
     }
 
     @Override

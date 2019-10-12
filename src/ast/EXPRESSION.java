@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class EXPRESSION extends STATEMENT {
 
     private String name;
-    private ArrayList<RULE> rules;
+    private ArrayList<RULE> rules = new ArrayList<>();
 
     @Override
     public void parse(){

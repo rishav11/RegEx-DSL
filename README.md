@@ -9,7 +9,7 @@ STATEMENT ::= EXPRESSION (EXPRESSION | TEST)*
 TEST ::= "test" STRING "with" "{" STRING ("," STRING)* "}" 
 
 EXPRESSION ::= "expression" STRING "{" RULE+ "}"
-RULE ::= ANCHOR? QUANTIFIER ":" KEYWORD ("or" KEYWORD)*
+RULE ::= ANCHOR? QUANTIFIER ":" KEYWORD ("or" KEYWORD)* ","
 ANCHOR ::= "starts with" | "ends with"
 
 QUANTIFIER ::= DIGIT "of" | DIGIT "or more of" | DIGIT ("or" DIGIT)* "of"
