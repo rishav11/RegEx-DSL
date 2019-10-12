@@ -1,0 +1,7 @@
+new expression called emailRegEx {
+    starts with 1 or more of: character or digit or “_” or “.” or “-”,
+    1 of: “@”,
+    1 or more of: character or digit or “.” or “-”,
+    1 of: “.”,
+    ends with 2 or more of: character
+}
