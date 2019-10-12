@@ -12,8 +12,9 @@ public class TEST extends STATEMENT {
 
     @Override
     public void parse(){
-        tokenizer.getAndCheckNext("teststringswith") ;
+        tokenizer.getAndCheckNext("test") ;
         name = tokenizer.getNext();
+        tokenizer.getAndCheckNext("with");
         tokenizer.getAndCheckNext("\\{");
         while(!tokenizer.checkToken("\\}")){
             tests.add(tokenizer.getNext()) ;
