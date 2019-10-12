@@ -11,14 +11,32 @@ public class PROGRAM extends Node {
 
     @Override
     public void parse() {
-        while(!tokenizer.checkToken("NO_MORE_TOKENS")){
+        while (!tokenizer.checkToken("NO_MORE_TOKENS")) {
             STATEMENT s = null;
-            if (tokenizer.checkToken("expression")){
-                 s = new EXPRESSION();
+            if (tokenizer.checkToken("expression")) {
+                s = new EXPRESSION();
+            } else if (tokenizer.checkToken("test strings with")) {
+                s = new TEST();
+            } else if (tokenizer.checkToken("{")) {
+                // s = new TEST();
+            } else if (tokenizer.checkToken("}")) {
+                // s = new TEST();
+            } else if (tokenizer.checkToken("starts with")) {
+                // s = new TEST();
+            } else if (tokenizer.checkToken("ends with")) {
+                // s = new TEST();
+            } else if (tokenizer.checkToken("or more of")) {
+                // s = new TEST();
+            } else if (tokenizer.checkToken("character")) {
+                // s = new TEST();
+            } else if (tokenizer.checkToken("digit")) {
+                // s = new TEST();
+            } else if (tokenizer.checkToken("from")) {
+                // s = new TEST();
+            } else if (tokenizer.checkToken("to")) {
+                // s = new TEST();
             }
-            else if (tokenizer.checkToken("test")){
-                 s = new TEST();
-            }
+
             s.parse();
             statements.add(s);
         }

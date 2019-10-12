@@ -11,7 +11,14 @@ public class RULE extends STATEMENT {
 
     @Override
     public void parse(){
-
+        // NO anchor
+        if (!tokenizer.checkToken("[0-9]+")) {
+            anchor = new ANCHOR();
+            anchor.parse();
+        }
+        quantifier = new QUANTIFIER();
+        quantifier.parse();
+        tokenizer.getAndCheckNext(":");
     }
 
     @Override

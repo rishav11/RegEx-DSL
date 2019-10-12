@@ -9,7 +9,7 @@ public class ANCHOR extends STATEMENT {
 
     @Override
     public void parse(){
-
+        anchor = tokenizer.getNext();
     }
 
     @Override

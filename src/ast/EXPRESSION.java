@@ -35,6 +35,9 @@ public class EXPRESSION extends STATEMENT {
 
     @Override
     public String evaluate() {
-        return null;
+        for (RULE s : rules){
+            s.evaluate();
+        }
+        return "";
     }
 }

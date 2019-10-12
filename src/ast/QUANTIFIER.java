@@ -1,5 +1,6 @@
 package ast;
 
+import javax.swing.plaf.synth.SynthEditorPaneUI;
 import java.util.ArrayList;
 
 /**
@@ -8,11 +9,19 @@ import java.util.ArrayList;
 public class QUANTIFIER extends STATEMENT {
 
     private int digit;
+    private boolean isExactly;
     private ArrayList<Integer> ordigits;
 
     @Override
-    public void parse(){
-
+    public void parse() {
+        String d = tokenizer.getNext();
+        digit = Integer.parseInt(d);
+        String exact = tokenizer.getNext();
+        if (exact == "of") {
+            isExactly = true;
+        } else if (exact == "ormoreof") {
+            isExactly = false;
+        }
     }
 
     @Override

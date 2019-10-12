@@ -39,6 +39,8 @@ public class Tokenizer {
             System.out.println(tokenizedProgram);
         }
         //        tokenizedProgram = tokenizedProgram.replaceAll("__","_");
+        tokenizedProgram = tokenizedProgram.replaceAll("~    starts ~with~","~startswith~");
+        tokenizedProgram = tokenizedProgram.replaceAll("~ends~with~","~endwith~");
         tokenizedProgram = tokenizedProgram.replaceAll("~or~ m~or~e ~of~","~ormoreof~");
         System.out.println(tokenizedProgram);
         tokenizedProgram = tokenizedProgram.replaceAll("\\s(?=(?:\"[^\"]*\"|[^\"])*$)","");
