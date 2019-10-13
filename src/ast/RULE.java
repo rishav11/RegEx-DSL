@@ -49,6 +49,13 @@ public class RULE extends STATEMENT {
 
     @Override
     public String evaluate() {
+        if (anchor != null) {
+            anchor.evaluate();
+        }
+        quantifier.evaluate();
+        for (KEYWORD k: keywords) {
+            k.evaluate();
+        }
         return null;
     }
 
