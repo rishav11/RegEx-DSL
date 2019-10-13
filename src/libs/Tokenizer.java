@@ -40,8 +40,9 @@ public class Tokenizer {
         }
         //        tokenizedProgram = tokenizedProgram.replaceAll("__","_");
         tokenizedProgram = tokenizedProgram.replaceAll("~    starts ~with~","~startswith~");
-        tokenizedProgram = tokenizedProgram.replaceAll("~ends~with~","~endwith~");
+        tokenizedProgram = tokenizedProgram.replaceAll("~    ends ~with~","~endswith~");
         tokenizedProgram = tokenizedProgram.replaceAll("~or~ m~or~e ~of~","~ormoreof~");
+    //    tokenizedProgram = tokenizedProgram.replaceAll("~~expression~ ","~expression~");
         System.out.println(tokenizedProgram);
         tokenizedProgram = tokenizedProgram.replaceAll("\\s(?=(?:\"[^\"]*\"|[^\"])*$)","");
         System.out.println(tokenizedProgram);
@@ -84,7 +85,7 @@ public class Tokenizer {
     public String getAndCheckNext(String regexp){
         String s = getNext();
         if (!s.matches(regexp)) {
-            System.out.println("FAILED!!!!  on "+ regexp);
+            System.out.println("FAILED!!!!  on "+ s);
             System.exit(0);
         }
         System.out.println("matched: "+s+"  to  "+regexp);

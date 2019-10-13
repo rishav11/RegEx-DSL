@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PROGRAM extends Node {
 
-    private List<STATEMENT> statements;
+    private List<STATEMENT> statements = new ArrayList<>();;
 
     @Override
     public void parse() {
@@ -15,28 +15,9 @@ public class PROGRAM extends Node {
             STATEMENT s = null;
             if (tokenizer.checkToken("expression")) {
                 s = new EXPRESSION();
-            } else if (tokenizer.checkToken("test strings with")) {
+            } else if (tokenizer.checkToken("test")) {
                 s = new TEST();
-            } else if (tokenizer.checkToken("{")) {
-                // s = new TEST();
-            } else if (tokenizer.checkToken("}")) {
-                // s = new TEST();
-            } else if (tokenizer.checkToken("starts with")) {
-                // s = new TEST();
-            } else if (tokenizer.checkToken("ends with")) {
-                // s = new TEST();
-            } else if (tokenizer.checkToken("or more of")) {
-                // s = new TEST();
-            } else if (tokenizer.checkToken("character")) {
-                // s = new TEST();
-            } else if (tokenizer.checkToken("digit")) {
-                // s = new TEST();
-            } else if (tokenizer.checkToken("from")) {
-                // s = new TEST();
-            } else if (tokenizer.checkToken("to")) {
-                // s = new TEST();
             }
-
             s.parse();
             statements.add(s);
         }

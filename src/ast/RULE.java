@@ -22,15 +22,18 @@ public class RULE extends STATEMENT {
         quantifier.parse();
         tokenizer.getAndCheckNext(":");
         while (!tokenizer.checkToken(",")) {
-            KEYWORD keyword = new KEYWORD();
-            keyword.parse();
-            keywords.add(keyword);
-            String next = tokenizer.getNext();
-            if (next.equals("or")) {
-                continue;
-            } else if (next.equals(",")) {
-                break;
+            if (tokenizer.checkToken("\\}")) break;
+            if (!tokenizer.checkToken("or")) {
+                KEYWORD keyword = new KEYWORD();
+                keyword.parse();
+                keywords.add(keyword);
             }
+            if (tokenizer.checkToken("or")) {
+                tokenizer.getNext();
+            }
+        }
+        if (!tokenizer.checkToken("\\}")) {
+            tokenizer.getNext();
         }
     }
 
