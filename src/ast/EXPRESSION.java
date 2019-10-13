@@ -1,5 +1,6 @@
 package ast;
 
+import libs.Node;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +26,7 @@ public class EXPRESSION extends STATEMENT {
 
     @Override
     public void nameCheck() {
-
+        Node.names.add(name) ;
     }
 
     @Override

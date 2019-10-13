@@ -6,11 +6,12 @@ import java.util.ArrayList;
 /**
  * Created by Rishav on 2019-10-11.
  */
+
 public class QUANTIFIER extends STATEMENT {
 
     private int digit;
-    private boolean isExactly;
-    private ArrayList<Integer> ordigits;
+    private int toDigit;
+    private int isExactly;
 
     @Override
     public void parse() {
@@ -18,16 +19,12 @@ public class QUANTIFIER extends STATEMENT {
         digit = Integer.parseInt(d);
         String exact = tokenizer.getNext();
         if (exact.equals("of")) {
-            isExactly = true;
+            isExactly = 0;
         } else if (exact.equals("ormoreof")) {
-            isExactly = false;
-        } else if (exact.equals("or")) {
-            while (!tokenizer.checkToken("of")) {
-                tokenizer.getNext();
-                ordigits.add(Integer.parseInt(tokenizer.getNext()));
-
-            }
-
+            isExactly = 1;
+        } else if (exact.equals("to")) {
+            isExactly = 2 ;
+            toDigit = Integer.parseInt(tokenizer.getNext());
         }
 
     }
@@ -44,24 +41,26 @@ public class QUANTIFIER extends STATEMENT {
 
     @Override
     public String evaluate() {
-        if (isExactly) {
+        if (isExactly == 0) {
             if (digit != 1) {
                 writer.print("{" + digit + "}");
             }
-        }
-        else {
-            if (ordigits == null) {
-                if (digit == 0) {
-                    writer.print("*");
-                } else if (digit == 1) {
-                    writer.print("+");
-                } else {
-                    writer.print("{" + digit + ",}");
-                }
+        } else if (isExactly == 1) {
+            if (digit == 0) {
+                writer.print("*");
+            } else if (digit == 1) {
+                writer.print("+");
             } else {
-                // we have ordigits
+                writer.print("{" + digit + ",}");
+            }
+        } else if (isExactly == 2) {
+            if (digit == 0 && toDigit == 1) {
+                writer.print("?");
+            } else {
+                writer.print("{" + digit + "," + toDigit + "}");
             }
         }
+
         return null;
     }
 }

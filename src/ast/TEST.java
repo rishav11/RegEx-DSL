@@ -1,5 +1,8 @@
 package ast;
 
+import libs.NameCheckException;
+import libs.Node;
+
 import java.util.ArrayList;
 
 /**
@@ -27,7 +30,9 @@ public class TEST extends STATEMENT {
 
     @Override
     public void nameCheck() {
-
+        if(!Node.names.contains(name)){
+            throw new NameCheckException(name) ;
+        }
     }
 
     @Override
