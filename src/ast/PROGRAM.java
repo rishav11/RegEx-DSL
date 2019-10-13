@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PROGRAM extends Node {
 
-    private List<STATEMENT> statements = new ArrayList<>();;
+    private List<STATEMENT> statements = new ArrayList<>();
 
     @Override
     public void parse() {
