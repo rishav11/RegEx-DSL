@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class TEST extends STATEMENT {
 
     private String name ;
-    private ArrayList<String> tests;
+    private ArrayList<String> tests =  new ArrayList<>();
 
     @Override
     public void parse(){
