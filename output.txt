@@ -1,0 +1,2 @@
+emailRegEx: []+[][]+[][]{2,}
+phoneNumberRegEx: []{3}[][]{3}[][]{4}

@@ -24,6 +24,11 @@ public class ANCHOR extends STATEMENT {
 
     @Override
     public String evaluate() {
-        return null;
+        if (anchor.equals("startswith")) {
+            return "^";
+        } else if (anchor.equals("endswith")) {
+            return "$";
+        }
+        return "";
     }
 }

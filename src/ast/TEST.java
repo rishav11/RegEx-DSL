@@ -17,8 +17,10 @@ public class TEST extends STATEMENT {
         tokenizer.getAndCheckNext("with");
         tokenizer.getAndCheckNext("\\{");
         while(!tokenizer.checkToken("\\}")){
-            tests.add(tokenizer.getNext()) ;
-            tests.add(tokenizer.getAndCheckNext(","));
+            String test = tokenizer.getNext();
+            if (tokenizer.checkToken(",")) {
+                tokenizer.getAndCheckNext(",");
+            }
         }
         tokenizer.getAndCheckNext("\\}");
     }

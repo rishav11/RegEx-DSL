@@ -17,11 +17,11 @@ public class QUANTIFIER extends STATEMENT {
         String d = tokenizer.getNext();
         digit = Integer.parseInt(d);
         String exact = tokenizer.getNext();
-        if (exact == "of") {
+        if (exact.equals("of")) {
             isExactly = true;
-        } else if (exact == "ormoreof") {
+        } else if (exact.equals("ormoreof")) {
             isExactly = false;
-        } else if (exact == "or") {
+        } else if (exact.equals("or")) {
             while (!tokenizer.checkToken("of")) {
                 tokenizer.getNext();
                 ordigits.add(Integer.parseInt(tokenizer.getNext()));
@@ -44,6 +44,24 @@ public class QUANTIFIER extends STATEMENT {
 
     @Override
     public String evaluate() {
+        if (isExactly) {
+            if (digit != 1) {
+                writer.print("{" + digit + "}");
+            }
+        }
+        else {
+            if (ordigits == null) {
+                if (digit == 0) {
+                    writer.print("*");
+                } else if (digit == 1) {
+                    writer.print("+");
+                } else {
+                    writer.print("{" + digit + ",}");
+                }
+            } else {
+                // we have ordigits
+            }
+        }
         return null;
     }
 }

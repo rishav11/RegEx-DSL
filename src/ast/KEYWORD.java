@@ -33,6 +33,7 @@ public class KEYWORD extends STATEMENT {
 
     @Override
     public String evaluate() {
+        k.evaluate();
         return null;
     }
 }

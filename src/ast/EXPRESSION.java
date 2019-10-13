@@ -35,9 +35,11 @@ public class EXPRESSION extends STATEMENT {
 
     @Override
     public String evaluate() {
+        writer.print(name + ": ");
         for (RULE s : rules){
             s.evaluate();
         }
+        writer.print("\n");
         return "";
     }
 }

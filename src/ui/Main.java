@@ -41,7 +41,7 @@ public class Main {
         program.parse();
         // program.nameCheck();
         // program.typeCheck();
-        // program.evaluate();
+        program.evaluate();
         Node.closeWriter();
     }
 
