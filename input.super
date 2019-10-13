@@ -6,6 +6,16 @@ expression emailRegEx {
     ends with 2 or more of: character
 }
 
+expression postalCodeRegEx {
+	1 of: character from A to F and G to K and M to Z,
+	1 of: digit from 1 to 4 and 5 to 8 and 9 to 9,
+	1 of: character from A to Z,
+	1 of: “ “,
+	1 of: digit from 1 to 9,
+	1 of: character from A to Z,
+	1 of: digit from 1 to 9,
+}
+
 expression phoneNumberRegEx {
     starts with 3 of: digit,
     1 of: "-",
