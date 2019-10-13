@@ -19,6 +19,13 @@ public class STRINGDEF extends KEYWORD {
 
     @Override
     public String evaluate() {
+        String sanitizedString = str.replaceAll("\"", "");
+        if (sanitizedString.length() == 1) {
+            writer.print(sanitizedString);
+        } else {
+            writer.print(sanitizedString);
+        }
+
         return null;
     }
 }

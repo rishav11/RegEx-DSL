@@ -23,6 +23,12 @@ public class DIGITDEF extends KEYWORD {
 
     @Override
     public String evaluate() {
+        if (d == null) {
+            writer.print("0-9");
+        } else {
+            d.evaluate();
+        }
+
         return null;
     }
 }

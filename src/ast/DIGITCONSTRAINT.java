@@ -32,6 +32,12 @@ public class DIGITCONSTRAINT extends DIGITDEF {
 
     @Override
     public String evaluate() {
+        for (int i=0; i<digits.size(); i++) {
+            writer.print(digits.get(i));
+            if (i%2 == 0) {
+                writer.print("-");
+            }
+        }
         return null;
     }
 }

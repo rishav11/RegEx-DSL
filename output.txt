@@ -1,3 +1,4 @@
-emailRegEx: []+[][]+[][]{2,}
-postalCodeRegEx: [][][][][][][]
-phoneNumberRegEx: []{3}[][]{3}[][]{4}
+emailRegEx: ^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,}$
+postalCodeRegEx: [A-FG-KM-Z][1-45-89-9][A-Z][ ][1-9][A-Z][1-9]
+phoneNumberRegEx: ^[0-9]{3}[-][0-9]{3}[-][0-9]{4}$
+something: ^[Hi Hello Hey ][my ][name ][is... ][Viniel]$
