@@ -6,10 +6,11 @@ import java.util.ArrayList;
 /**
  * Created by Rishav on 2019-10-11.
  */
+
 public class QUANTIFIER extends STATEMENT {
 
     private int digit;
-    private boolean isExactly;
+    private int isExactly;
     private ArrayList<Integer> ordigits;
 
     @Override
@@ -18,16 +19,11 @@ public class QUANTIFIER extends STATEMENT {
         digit = Integer.parseInt(d);
         String exact = tokenizer.getNext();
         if (exact == "of") {
-            isExactly = true;
+            isExactly = 0;
         } else if (exact == "ormoreof") {
-            isExactly = false;
-        } else if (exact == "or") {
-            while (!tokenizer.checkToken("of")) {
-                tokenizer.getNext();
-                ordigits.add(Integer.parseInt(tokenizer.getNext()));
-
-            }
-
+            isExactly = 1;
+        } else if (exact == "to") {
+            isExactly = 2 ;
         }
 
     }
