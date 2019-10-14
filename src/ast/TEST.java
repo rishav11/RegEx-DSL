@@ -4,6 +4,7 @@ import libs.NameCheckException;
 import libs.Node;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 /**
  * Created by Rishav on 2019-10-11.
@@ -21,6 +22,7 @@ public class TEST extends STATEMENT {
         tokenizer.getAndCheckNext("\\{");
         while(!tokenizer.checkToken("\\}")){
             String test = tokenizer.getNext();
+            tests.add(test) ;
             if (tokenizer.checkToken(",")) {
                 tokenizer.getAndCheckNext(",");
             }
@@ -42,6 +44,16 @@ public class TEST extends STATEMENT {
 
     @Override
     public String evaluate() {
-        return null;
+        writer.println("Tests for " + name);
+        for(String test : tests) {
+            Boolean isMatch = Pattern.matches(Node.outputs.get(name), test.replaceAll("\"", ""));
+            writer.print(test + ": ") ;
+            if (isMatch) {
+                writer.println("MATCHED");
+            } else {
+                writer.println("DID NOT MATCH");
+            }
+        }
+        return "" ;
     }
 }
