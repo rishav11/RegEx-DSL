@@ -34,17 +34,19 @@ public class Tokenizer {
         System.out.println(program);
 
         for (String s : literals){
-//            tokenizedProgram = tokenizedProgram.replaceAll(s,"_"+s+"_");
             tokenizedProgram = tokenizedProgram.replace(s,"~"+s+"~");
             System.out.println(tokenizedProgram);
         }
-        //        tokenizedProgram = tokenizedProgram.replaceAll("__","_");
-        tokenizedProgram = tokenizedProgram.replaceAll("~    starts ~with~","~startswith~");
-        tokenizedProgram = tokenizedProgram.replaceAll("~    ends ~with~","~endswith~");
-        tokenizedProgram = tokenizedProgram.replaceAll("~or~ m~or~e ~of~","~ormoreof~");
-    //    tokenizedProgram = tokenizedProgram.replaceAll("~~expression~ ","~expression~");
+
         System.out.println(tokenizedProgram);
+
         tokenizedProgram = tokenizedProgram.replaceAll("\\s(?=(?:\"[^\"]*\"|[^\"])*$)","");
+        System.out.println(tokenizedProgram);
+
+        tokenizedProgram = tokenizedProgram.replaceAll("~starts~with~","~startswith~");
+        tokenizedProgram = tokenizedProgram.replaceAll("~ends~with~","~endswith~");
+        tokenizedProgram = tokenizedProgram.replaceAll("~or~m~or~e~of~","~ormoreof~");
+
         System.out.println(tokenizedProgram);
         String [] temparray=tokenizedProgram.split("[~]+");
         tokens = new String[temparray.length-1];
