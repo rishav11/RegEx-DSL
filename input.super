@@ -24,6 +24,11 @@ expression phoneNumberRegEx {
     ends with 4 of: digit
 }
 
+expression something {
+    1 of: "Hi " or "Hello " or "Hey ",
+    1 of: "dude."
+}
+
 test emailRegEx with {
     "vinielk@icloud.com",
     "notvalidemail@.com"

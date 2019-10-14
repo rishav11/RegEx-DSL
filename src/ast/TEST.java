@@ -44,15 +44,15 @@ public class TEST extends STATEMENT {
 
     @Override
     public String evaluate() {
-        writer.println("Tests for " + name);
+        writer.println("\n**********TESTS FOR " + name + "**********");
         for(String test : tests) {
             Boolean isMatch = Pattern.matches(Node.outputs.get(name), test.replaceAll("\"", ""));
-            writer.print(test + ": ") ;
             if (isMatch) {
-                writer.println("MATCHED");
+                writer.print("FOUND MATCH: ");
             } else {
-                writer.println("DID NOT MATCH");
+                writer.print("NO MATCH FOUND: ");
             }
+            writer.println(test) ;
         }
         return "" ;
     }

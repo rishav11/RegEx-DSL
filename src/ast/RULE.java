@@ -56,21 +56,20 @@ public class RULE extends STATEMENT {
             anchorRegEx = anchor.evaluate();
         }
         if (anchorRegEx.equals("^")) {
-//            writer.print("^");
             output += "^";
         }
 
-//        writer.print("[");
-        output += "[";
-        for (KEYWORD k : keywords) {
-            output += k.evaluate();
+        output += "(";
+        for (int i=0; i<keywords.size(); i++) {
+            output += keywords.get(i).evaluate();
+            if (i+1<keywords.size()) {
+                output += "|";
+            }
         }
-//        writer.print("]");
-        output += "]";
+        output += ")";
         output += quantifier.evaluate();
 
         if (anchorRegEx.equals("$")) {
-//            writer.print("$");
             output += "$";
         }
 

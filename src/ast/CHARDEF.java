@@ -23,13 +23,14 @@ public class CHARDEF extends KEYWORD {
 
     @Override
     public String evaluate() {
+        String output = "";
+        output += "[";
         if (c == null) {
-//            writer.print("a-zA-Z");
-            return "a-zA-Z";
+            output += "a-zA-Z";
         } else {
-            return c.evaluate();
+            output += c.evaluate();
         }
-
-//        return null;
+        output += "]";
+        return output;
     }
 }

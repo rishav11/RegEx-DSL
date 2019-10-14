@@ -1,12 +1,15 @@
-emailRegEx: ^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9.-]+[.][a-zA-Z]{2,}$
-postalCodeRegEx: [A-FG-KM-Z][1-45-89-9][A-Z][ ][1-9][A-Z][1-9]
-phoneNumberRegEx: ^[0-9]{3}[-][0-9]{3}[-][0-9]{4}$
-Tests for emailRegEx
-"vinielk@icloud.com": MATCHED
-"notvalidemail@.com": DID NOT MATCH
-Tests for phoneNumberRegEx
-"     778-994-1393": DID NOT MATCH
-"7789941393": DID NOT MATCH
-"(778) 994-1393": DID NOT MATCH
-"778-994-1393       ": DID NOT MATCH
-"778-994-1393": MATCHED
+emailRegEx: ^([a-zA-Z]|[0-9]|_|\.|\-)+(@)([a-zA-Z]|[0-9]|\.|\-)+(\.)([a-zA-Z]){2,}$
+postalCodeRegEx: ([A-FG-KM-Z])([1-45-89-9])([A-Z])( )([1-9])([A-Z])([1-9])
+phoneNumberRegEx: ^([0-9]){3}(\-)([0-9]){3}(\-)([0-9]){4}$
+something: (Hi |Hello |Hey )(dude\.)
+
+**********TESTS FOR emailRegEx**********
+FOUND MATCH: "vinielk@icloud.com"
+NO MATCH FOUND: "notvalidemail@.com"
+
+**********TESTS FOR phoneNumberRegEx**********
+NO MATCH FOUND: "     778-994-1393"
+NO MATCH FOUND: "7789941393"
+NO MATCH FOUND: "(778) 994-1393"
+NO MATCH FOUND: "778-994-1393       "
+FOUND MATCH: "778-994-1393"
