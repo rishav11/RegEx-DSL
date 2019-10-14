@@ -29,12 +29,13 @@ public class Tokenizer {
 
     private void tokenize (){
         String tokenizedProgram = program;
-        tokenizedProgram = tokenizedProgram.replace("\n","");
+        tokenizedProgram = tokenizedProgram.replaceAll("\\n(?=(?:\"[^\"]*\"|[^\"])*$)","");
 //        tokenizedProgram = tokenizedProgram.replaceAll("([0-9]+)","~$1~");
         System.out.println(program);
 
         for (String s : literals){
-            tokenizedProgram = tokenizedProgram.replace(s,"~"+s+"~");
+            String el = s.replaceAll("[\\<\\(\\[\\{\\\\\\^\\-\\=\\$\\!\\|\\]\\}\\)\\?\\*\\+\\.\\>]", "\\\\$0");
+            tokenizedProgram = tokenizedProgram.replaceAll("(" + el + ")(?=(?:\"[^\"]*\"|[^\"])*$)","~"+s+"~");
             System.out.println(tokenizedProgram);
         }
 
@@ -43,6 +44,9 @@ public class Tokenizer {
         tokenizedProgram = tokenizedProgram.replaceAll("\\s(?=(?:\"[^\"]*\"|[^\"])*$)","");
         System.out.println(tokenizedProgram);
 
+        tokenizedProgram = tokenizedProgram.replaceAll("(\"([^\"])*\")","~$0~");
+        tokenizedProgram = tokenizedProgram.replaceAll("~non-~whitespace~","~non-whitespace~");
+        tokenizedProgram = tokenizedProgram.replaceAll("~non-~digit~","~non-digit~");
         tokenizedProgram = tokenizedProgram.replaceAll("~starts~with~","~startswith~");
         tokenizedProgram = tokenizedProgram.replaceAll("~ends~with~","~endswith~");
         tokenizedProgram = tokenizedProgram.replaceAll("~or~m~or~e~of~","~ormoreof~");

@@ -4,6 +4,7 @@ import libs.NameCheckException;
 import libs.Node;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TEST extends STATEMENT {
@@ -20,7 +21,7 @@ public class TEST extends STATEMENT {
         while(!tokenizer.checkToken("\\}")){
             String test = tokenizer.getNext();
             tests.add(test) ;
-            if (tokenizer.checkToken(",")) {
+            if (!tokenizer.checkToken("\\}")) {
                 tokenizer.getAndCheckNext(",");
             }
         }
@@ -41,7 +42,7 @@ public class TEST extends STATEMENT {
 
     @Override
     public String evaluate() {
-        writer.println("\n**********TESTS FOR " + name + "**********");
+        writer.println("**********TESTS FOR " + name + "**********");
         for(String test : tests) {
             Boolean isMatch = Pattern.matches(Node.outputs.get(name), test.replaceAll("\"", ""));
             if (isMatch) {

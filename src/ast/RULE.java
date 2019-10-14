@@ -29,9 +29,6 @@ public class RULE extends STATEMENT {
                 tokenizer.getNext();
             }
         }
-        if (!tokenizer.checkToken("\\}")) {
-            tokenizer.getNext();
-        }
     }
 
     @Override

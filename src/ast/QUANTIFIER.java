@@ -21,6 +21,7 @@ public class QUANTIFIER extends STATEMENT {
         } else if (exact.equals("to")) {
             isExactly = 2 ;
             toDigit = Integer.parseInt(tokenizer.getNext());
+            tokenizer.getAndCheckNext("of");
         }
 
     }

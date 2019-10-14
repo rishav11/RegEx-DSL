@@ -13,7 +13,19 @@ public class KEYWORD extends STATEMENT {
             k = new CHARDEF();
         } else if (tokenizer.checkToken("digit")) {
             k = new DIGITDEF();
-        } else {
+        } else if (tokenizer.checkToken("(\"([^\"])*\")")) {
+            k = new STRINGDEF();
+        } else if (tokenizer.checkToken("any")) {
+            k = new STRINGDEF();
+        } else if (tokenizer.checkToken("non-digit")) {
+            k = new STRINGDEF();
+        } else if (tokenizer.checkToken("whitespace")) {
+            k = new STRINGDEF();
+        } else if (tokenizer.checkToken("non-whitespace")) {
+            k = new STRINGDEF();
+        } else if (tokenizer.checkToken("newline")) {
+            k = new STRINGDEF();
+        } else if (tokenizer.checkToken("tab")) {
             k = new STRINGDEF();
         }
         k.parse();

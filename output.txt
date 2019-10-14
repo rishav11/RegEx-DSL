@@ -2,11 +2,9 @@ emailRegEx: ^([a-zA-Z]|[0-9]|_|\.|\-)+(@)([a-zA-Z]|[0-9]|\.|\-)+(\.)([a-zA-Z]){2
 postalCodeRegEx: ([A-FG-KM-Z])([1-45-89-9])([A-Z])( )([1-9])([A-Z])([1-9])
 phoneNumberRegEx: ^([0-9]){3}(\-)([0-9]){3}(\-)([0-9]){4}$
 something: (Hi |Hello |Hey )(dude\.)
-
 **********TESTS FOR emailRegEx**********
 FOUND MATCH: "vinielk@icloud.com"
 NO MATCH FOUND: "notvalidemail@.com"
-
 **********TESTS FOR phoneNumberRegEx**********
 NO MATCH FOUND: "     778-994-1393"
 NO MATCH FOUND: "7789941393"

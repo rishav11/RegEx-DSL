@@ -8,13 +8,13 @@ STATEMENT ::= EXPRESSION (EXPRESSION | TEST)*
 
 TEST ::= "test" STRING "with" "{" STRING ("," STRING)* "}" 
 
-EXPRESSION ::= "expression" STRING "{" RULE+ "}"
-RULE ::= ANCHOR? QUANTIFIER ":" KEYWORD ("or" KEYWORD)* ","
+EXPRESSION ::= "expression" STRING "{" RULE ("," RULE)* "}"
+RULE ::= ANCHOR? QUANTIFIER ":" KEYWORD ("or" KEYWORD)*
 ANCHOR ::= "starts with" | "ends with"
 
-QUANTIFIER ::= DIGIT "of" | DIGIT "or more of" | DIGIT ("or" DIGIT)* "of"
+QUANTIFIER ::= DIGIT "of" | DIGIT "or more of" | DIGIT "to" DIGIT "of"
 
-KEYWORD ::= CHARACTER-DEF | DIGIT-DEF | STRING | "non-digit" | "whitespace" | "non-whitespace" | "newline" | "tab"
+KEYWORD ::= CHARACTER-DEF | DIGIT-DEF | STRING | "any | "non-digit" | "whitespace" | "non-whitespace" | "newline" | "tab"
 CHARACTER-DEF ::= "character" CHARACTER-CONSTRAINT?
 CHARACTER-CONSTRAINT ::= FROM-CHAR | FROM-CHAR AND-CHAR*
 FROM-CHAR ::= "from" CHAR "to" CHAR
