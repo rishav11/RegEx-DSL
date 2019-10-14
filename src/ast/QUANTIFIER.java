@@ -43,24 +43,30 @@ public class QUANTIFIER extends STATEMENT {
     public String evaluate() {
         if (isExactly == 0) {
             if (digit != 1) {
-                writer.print("{" + digit + "}");
+//                writer.print("{" + digit + "}");
+                return ("{" + digit + "}");
             }
         } else if (isExactly == 1) {
             if (digit == 0) {
-                writer.print("*");
+//                writer.print("*");
+                return ("*");
             } else if (digit == 1) {
-                writer.print("+");
+//                writer.print("+");
+                return ("+");
             } else {
-                writer.print("{" + digit + ",}");
+//                writer.print("{" + digit + ",}");
+                return ("{" + digit + ",}");
             }
         } else if (isExactly == 2) {
             if (digit == 0 && toDigit == 1) {
-                writer.print("?");
+//                writer.print("?");
+                return ("?");
             } else {
-                writer.print("{" + digit + "," + toDigit + "}");
+//                writer.print("{" + digit + "," + toDigit + "}");
+                return ("{" + digit + "," + toDigit + "}");
             }
         }
 
-        return null;
+        return "";
     }
 }

@@ -24,11 +24,12 @@ public class CHARDEF extends KEYWORD {
     @Override
     public String evaluate() {
         if (c == null) {
-            writer.print("a-zA-Z");
+//            writer.print("a-zA-Z");
+            return "a-zA-Z";
         } else {
-            c.evaluate();
+            return c.evaluate();
         }
 
-        return null;
+//        return null;
     }
 }

@@ -49,21 +49,32 @@ public class RULE extends STATEMENT {
 
     @Override
     public String evaluate() {
+        String output = "";
+
         String anchorRegEx = "";
         if (anchor != null) {
             anchorRegEx = anchor.evaluate();
         }
-        if (anchorRegEx.equals("^")) writer.print("^");
-
-        writer.print("[");
-        for (KEYWORD k : keywords) {
-            k.evaluate();
+        if (anchorRegEx.equals("^")) {
+//            writer.print("^");
+            output += "^";
         }
-        writer.print("]");
-        quantifier.evaluate();
 
-        if (anchorRegEx.equals("$")) writer.print("$");
-        return "";
+//        writer.print("[");
+        output += "[";
+        for (KEYWORD k : keywords) {
+            output += k.evaluate();
+        }
+//        writer.print("]");
+        output += "]";
+        output += quantifier.evaluate();
+
+        if (anchorRegEx.equals("$")) {
+//            writer.print("$");
+            output += "$";
+        }
+
+        return output;
     }
 
 }

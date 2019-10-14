@@ -36,11 +36,17 @@ public class EXPRESSION extends STATEMENT {
 
     @Override
     public String evaluate() {
+        String output = "";
+
         writer.print(name + ": ");
         for (RULE s : rules){
-            s.evaluate();
+            output += s.evaluate();
         }
+        writer.print(output);
         writer.print("\n");
+
+        Node.outputs.put(name, output);
+
         return "";
     }
 }

@@ -32,12 +32,17 @@ public class CHARCONSTRAINT extends CHARDEF {
 
     @Override
     public String evaluate() {
+        String output = "";
+
         for (int i=0; i<chars.size(); i++) {
-            writer.print(chars.get(i));
+//            writer.print(chars.get(i));
+            output += chars.get(i);
             if (i%2 == 0) {
-                writer.print("-");
+//                writer.print("-");
+                output += "-";
             }
         }
-        return null;
+
+        return output;
     }
 }

@@ -21,11 +21,13 @@ public class STRINGDEF extends KEYWORD {
     public String evaluate() {
         String sanitizedString = str.replaceAll("\"", "");
         if (sanitizedString.length() == 1) {
-            writer.print(sanitizedString);
+//            writer.print(sanitizedString);
+            return sanitizedString;
         } else {
-            writer.print(sanitizedString);
+//            writer.print(sanitizedString);
+            return sanitizedString;
         }
 
-        return null;
+//        return null;
     }
 }
