@@ -25,7 +25,7 @@ public class STRINGDEF extends KEYWORD {
         } else if (str.equals("non-digit")) {
             return "\\D";
         } else if (str.equals("whitespace")) {
-            return "\\w";
+            return "\\s";
         } else if (str.equals("non-whitespace")) {
             return "\\S";
         } else if (str.equals("newline")) {

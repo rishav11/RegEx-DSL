@@ -6,25 +6,18 @@
 PROGRAM ::= STATEMENT+
 STATEMENT ::= EXPRESSION (EXPRESSION | TEST)*
 
-TEST ::= "test" STRING "with" "{" STRING ("," STRING)* "}" 
+TEST ::= 'test' STRING 'with' '{' STRING ( ',' STRING )* '}'
 
-EXPRESSION ::= "expression" STRING "{" RULE ("," RULE)* "}"
-RULE ::= ANCHOR? QUANTIFIER ":" KEYWORD ("or" KEYWORD)*
-ANCHOR ::= "starts with" | "ends with"
-
-QUANTIFIER ::= DIGIT "of" | DIGIT "or more of" | DIGIT "to" DIGIT "of"
-
-KEYWORD ::= CHARACTER-DEF | DIGIT-DEF | STRING | "any | "non-digit" | "whitespace" | "non-whitespace" | "newline" | "tab"
-CHARACTER-DEF ::= "character" CHARACTER-CONSTRAINT?
-CHARACTER-CONSTRAINT ::= FROM-CHAR | FROM-CHAR AND-CHAR*
-FROM-CHAR ::= "from" CHAR "to" CHAR
-AND-CHAR ::= "and" CHAR "to" CHAR
+EXPRESSION ::= 'expression' STRING '{' RULE ( ',' RULE )* '}'
+RULE ::= ANCHOR? QUANTIFIER ':' KEYWORD ( 'or' KEYWORD )*
+ANCHOR ::= 'starts with' | 'ends with'
+QUANTIFIER ::= DIGIT ( 'or more' | 'to' DIGIT )? 'of'
+KEYWORD ::= CHARDEF | DIGITDEF | STRING | 'any' | 'non-digit' | 'whitespace' | 'non-whitespace' | 'newline' | 'tab'
+CHARDEF ::= 'character' CHARCONSTRAINT?
+CHARCONSTRAINT ::= 'from' CHAR 'to' CHAR ( 'and' CHAR 'to' CHAR )*
 CHAR ::= [a-zA-Z]
-
-DIGIT-DEF ::= "digit" DIGIT-CONSTRAINT?
-DIGIT-CONSTRAINT ::= FROM-DIGIT | FROM-DIGIT AND-DIGIT*
-FROM-DIGIT ::= "from" DIGIT "to" DIGIT
-AND-DIGIT ::= "and" DIGIT "to" DIGIT
+DIGITDEF ::= 'digit' DIGITCONSTRAINT?
+DIGITCONSTRAINT ::= 'from' DIGIT 'to' DIGIT ( 'and' DIGIT 'to' DIGIT )*
 DIGIT ::= [0-9]
 ```
 

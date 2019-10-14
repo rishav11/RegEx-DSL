@@ -1,13 +1,10 @@
-emailRegEx: ^([a-zA-Z]|[0-9]|_|\.|\-)+(@)([a-zA-Z]|[0-9]|\.|\-)+(\.)([a-zA-Z]){2,}$
-postalCodeRegEx: ([A-FG-KM-Z])([1-45-89-9])([A-Z])( )([1-9])([A-Z])([1-9])
-phoneNumberRegEx: ^([0-9]){3}(\-)([0-9]){3}(\-)([0-9]){4}$
-something: (Hi |Hello |Hey )(dude\.)
-**********TESTS FOR emailRegEx**********
-FOUND MATCH: "vinielk@icloud.com"
-NO MATCH FOUND: "notvalidemail@.com"
-**********TESTS FOR phoneNumberRegEx**********
-NO MATCH FOUND: "     778-994-1393"
-NO MATCH FOUND: "7789941393"
-NO MATCH FOUND: "(778) 994-1393"
-NO MATCH FOUND: "778-994-1393       "
-FOUND MATCH: "778-994-1393"
+postalCodeEx: ^([a-zA-Z])([0-9])([a-zA-Z])(\s)([0-9])([a-zA-Z])([0-9])$
+**********TESTS FOR postalCodeEx**********
+FOUND MATCH: "V5X 1A6"
+FOUND MATCH: "V3R 0G5"
+FOUND MATCH: "I5J 6K7"
+urlCodeEx: ^(www)(\.)([a-zA-Z])+(\.)(com)
+**********TESTS FOR urlCodeEx**********
+FOUND MATCH: "www.google.com"
+FOUND MATCH: "www.facebook.com"
+FOUND MATCH: "www.youtube.com"
