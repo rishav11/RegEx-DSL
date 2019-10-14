@@ -2,9 +2,6 @@ package ast;
 
 import java.util.ArrayList;
 
-/**
- * Created by Rishav on 2019-10-11.
- */
 public class RULE extends STATEMENT {
 
     private ANCHOR anchor;

@@ -25,11 +25,13 @@ public class CHARDEF extends KEYWORD {
     public String evaluate() {
         String output = "";
         output += "[";
+
         if (c == null) {
             output += "a-zA-Z";
         } else {
             output += c.evaluate();
         }
+
         output += "]";
         return output;
     }

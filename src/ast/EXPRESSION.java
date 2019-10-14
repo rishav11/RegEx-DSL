@@ -3,9 +3,6 @@ package ast;
 import libs.Node;
 import java.util.ArrayList;
 
-/**
- * Created by Rishav on 2019-10-11.
- */
 public class EXPRESSION extends STATEMENT {
 
     private String name;

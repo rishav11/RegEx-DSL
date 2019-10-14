@@ -35,10 +35,8 @@ public class CHARCONSTRAINT extends CHARDEF {
         String output = "";
 
         for (int i=0; i<chars.size(); i++) {
-//            writer.print(chars.get(i));
             output += chars.get(i);
             if (i%2 == 0) {
-//                writer.print("-");
                 output += "-";
             }
         }

@@ -1,8 +1,5 @@
 package ast;
 
-/**
- * Created by Rishav on 2019-10-11.
- */
 public class ANCHOR extends STATEMENT {
 
     private String anchor;

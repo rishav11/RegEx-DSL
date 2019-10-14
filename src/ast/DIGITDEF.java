@@ -25,11 +25,13 @@ public class DIGITDEF extends KEYWORD {
     public String evaluate() {
         String output = "";
         output += "[";
+
         if (d == null) {
             output += "0-9";
         } else {
             output += d.evaluate();
         }
+
         output += "]";
         return output;
     }

@@ -3,9 +3,7 @@ package ast;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Rishav on 2019-10-11.
- */
+
 public class KEYWORD extends STATEMENT {
     private KEYWORD k;
 

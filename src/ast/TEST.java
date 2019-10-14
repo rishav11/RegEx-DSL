@@ -6,9 +6,6 @@ import libs.Node;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-/**
- * Created by Rishav on 2019-10-11.
- */
 public class TEST extends STATEMENT {
 
     private String name ;

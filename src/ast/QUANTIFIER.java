@@ -3,10 +3,6 @@ package ast;
 import javax.swing.plaf.synth.SynthEditorPaneUI;
 import java.util.ArrayList;
 
-/**
- * Created by Rishav on 2019-10-11.
- */
-
 public class QUANTIFIER extends STATEMENT {
 
     private int digit;
@@ -41,28 +37,20 @@ public class QUANTIFIER extends STATEMENT {
 
     @Override
     public String evaluate() {
-        if (isExactly == 0) {
-            if (digit != 1) {
-//                writer.print("{" + digit + "}");
-                return ("{" + digit + "}");
-            }
+        if (isExactly == 0 && digit != 1) {
+            return ("{" + digit + "}");
         } else if (isExactly == 1) {
             if (digit == 0) {
-//                writer.print("*");
                 return ("*");
             } else if (digit == 1) {
-//                writer.print("+");
                 return ("+");
             } else {
-//                writer.print("{" + digit + ",}");
                 return ("{" + digit + ",}");
             }
         } else if (isExactly == 2) {
             if (digit == 0 && toDigit == 1) {
-//                writer.print("?");
                 return ("?");
             } else {
-//                writer.print("{" + digit + "," + toDigit + "}");
                 return ("{" + digit + "," + toDigit + "}");
             }
         }

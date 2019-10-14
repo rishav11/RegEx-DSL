@@ -35,10 +35,8 @@ public class DIGITCONSTRAINT extends DIGITDEF {
         String output = "";
 
         for (int i=0; i<digits.size(); i++) {
-//            writer.print(digits.get(i));
             output += (digits.get(i));
             if (i%2 == 0) {
-//                writer.print("-");
                 output += ("-");
             }
         }
